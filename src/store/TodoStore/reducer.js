@@ -1,18 +1,13 @@
-import ACTION from './action';
-
 const todosReducer = (state, action) => {
-  switch (action) {
-    case ACTION.ADD_TODO:
+  const { type, payload } = action;
+  console.log(type, payload);
+  switch (type) {
+    case 'ADD_TODO':
       const { todoStore } = state;
       return {
         ...state,
         todoStore: {
-          list: [
-            ...todoStore.list,
-            {
-              name: 'kodo1',
-            },
-          ],
+          list: [...todoStore.list, payload],
         },
       };
     default:

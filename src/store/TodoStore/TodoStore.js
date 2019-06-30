@@ -1,5 +1,5 @@
 class TodoStore {
-  list = [{ name: 'default' }];
+  list = [{ value: 'default' }];
 }
 
 export default TodoStore;
