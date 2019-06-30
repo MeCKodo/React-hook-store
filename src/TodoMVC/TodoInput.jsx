@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { useStoreContext } from '../hook-store';
-import ACTION from '../store/TodoStore/action';
+import { addTodd, clearTodos } from '../store/TodoStore/action';
 
 function TodoInput() {
   const [value, setValue] = useState('');
-  const [{ todoStore }, dispatch] = useStoreContext();
+  const [, dispatch] = useStoreContext();
 
-  const handleClick = () => {
+  const handleClick = () =>
     dispatch(
-      ACTION({
+      addTodd({
         value,
       }),
     );
-    console.log(todoStore);
-  };
+
+  const clear = () => dispatch(clearTodos());
 
   const onChange = e => {
     setValue(e.target.value);
@@ -23,6 +23,7 @@ function TodoInput() {
     <div>
       <input type="text" onChange={onChange} />
       <button onClick={handleClick}>Add one</button>
+      <button onClick={clear}>clear all</button>
     </div>
   );
 }
