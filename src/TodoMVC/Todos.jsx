@@ -1,9 +1,9 @@
 import React from 'react';
-import { useStoreContext } from '../hook-store';
+import { useStore } from '../hook-store';
 import { removeTodo } from '../store/TodoStore/action';
 
 function Todos() {
-  const [stores, dispatch] = useStoreContext();
+  const [stores, dispatch] = useStore();
   const { todoStore } = stores;
 
   const handleClick = index =>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useStoreContext } from '../hook-store';
+import { useStore } from '../hook-store';
 import { addTodd, clearTodos } from '../store/TodoStore/action';
 
 function TodoInput() {
   const [value, setValue] = useState('');
-  const [, dispatch] = useStoreContext();
+  const [, dispatch] = useStore();
 
   const handleClick = () =>
     dispatch(

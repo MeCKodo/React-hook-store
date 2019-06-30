@@ -4,12 +4,13 @@ const StoreContext = createContext({});
 
 const StoreProvider = ({ reducer, initState, children }) => {
   return (
+    // useReducer(reducer, initState) = [state, dispatch]
     <StoreContext.Provider value={useReducer(reducer, initState)}>
       {children}
     </StoreContext.Provider>
   );
 };
 
-const useStoreContext = () => useContext(StoreContext);
+const useStore = () => useContext(StoreContext);
 
-export { StoreContext, StoreProvider, useStoreContext };
+export { StoreContext, StoreProvider, useStore };
