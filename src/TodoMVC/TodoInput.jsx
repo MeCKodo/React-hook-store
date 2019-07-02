@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useStore } from '../hook-store';
-import { addTodd, clearTodos } from '../store/TodoStore/action';
+import { addTodd, clearTodo } from '../store/TodoStore/action';
 
 function TodoInput() {
   const [value, setValue] = useState('');
@@ -9,11 +9,11 @@ function TodoInput() {
   const handleClick = () =>
     dispatch(
       addTodd({
-        value,
-      }),
+        value
+      })
     );
 
-  const clear = () => dispatch(clearTodos());
+  const clear = () => dispatch(clearTodo());
 
   const onChange = e => {
     setValue(e.target.value);

@@ -1,8 +1,7 @@
-import { ADD_TODO, REMOVE_TODO, CLEAR_TODOS } from './constant';
+import { ADD_TODO, REMOVE_TODO, CLEAR_TODO } from './constant';
 
-const todosReducer = (state, action) => {
+const todoReducer = (state, action) => {
   const { type, payload } = action;
-  console.log(type, payload);
   const { todoStore } = state;
 
   switch (type) {
@@ -10,8 +9,8 @@ const todosReducer = (state, action) => {
       return {
         ...state,
         todoStore: {
-          list: [...todoStore.list, payload],
-        },
+          list: [...todoStore.list, payload]
+        }
       };
     case REMOVE_TODO:
       const list = [...todoStore.list];
@@ -19,19 +18,19 @@ const todosReducer = (state, action) => {
       return {
         ...state,
         todoStore: {
-          list,
-        },
+          list
+        }
       };
-    case CLEAR_TODOS:
+    case CLEAR_TODO:
       return {
         ...state,
         todoStore: {
-          list: [],
-        },
+          list: []
+        }
       };
     default:
       return state;
   }
 };
 
-export { todosReducer };
+export { todoReducer };

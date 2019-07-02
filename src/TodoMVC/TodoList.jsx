@@ -2,15 +2,15 @@ import React from 'react';
 import { useStore } from '../hook-store';
 import { removeTodo } from '../store/TodoStore/action';
 
-function Todos() {
+function TodoList() {
   const [stores, dispatch] = useStore();
   const { todoStore } = stores;
 
   const handleClick = index =>
     dispatch(
       removeTodo({
-        index,
-      }),
+        index
+      })
     );
 
   return (
@@ -25,4 +25,4 @@ function Todos() {
   );
 }
 
-export default Todos;
+export default TodoList;
